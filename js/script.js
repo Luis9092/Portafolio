@@ -262,7 +262,7 @@ function swiperCargando() {
     let swiper = new Swiper(".featured-slider", {
         spaceBetween: 40,
         loop: true,
-        slidesPerView: 3,
+        slidesPerView: 1,
         centeredSlides: true,
         // slidesPerView: 'auto',
         autoplay: {

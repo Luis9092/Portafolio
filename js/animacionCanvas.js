@@ -7,10 +7,17 @@ partiqleCanvas.width = window.innerWidth;
 partiqleCanvas.height = window.innerHeight;
 
 // Definir las propiedades de la animación
-let particleCount = 50;
+let particleCount = 0;
 let particleSize = 2;
 let particleSpeed = 2;
-let particleColor = colorChange; 
+let particleColor = colorChange;
+
+if (window.innerWidth < 600) {
+    particleCount = 18;
+} else {
+    particleCount = 50;
+}
+
 
 // Crear un array para almacenar las partículas
 var particles = [];
@@ -101,6 +108,7 @@ function hexToRgb(hex) {
 for (var i = 0; i < particleCount; i++) {
     particles.push(generateParticle());
 }
+
 
 // Iniciar la animación
 drawParticles();
