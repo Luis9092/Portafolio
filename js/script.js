@@ -389,10 +389,25 @@ if (btnEnviarMensaje) {
     });
 }
 
+const audio = new Audio('js/reproducir.mpeg');
+
 // INICIOOO
 window.onload = function () {
-    inicioAlerta();
-}
+    inicioAlerta(); // Asegúrate de que esta función esté definida
+
+    // Esperar a que el usuario haga clic para reproducir el audio
+    document.addEventListener('click', function () {
+        if (audio && typeof audio.play === 'function') {
+            audio.play().catch(function(error) {
+                console.error('Error al intentar reproducir el audio:', error);
+            });
+        } else {
+            console.error('El objeto audio no está definido o no tiene el método play.');
+        }
+    }, { once: true }); // Elimina el evento después del primer clic
+};
+
+
 
 let timerInterval;
 
@@ -426,3 +441,12 @@ function inicioAlerta() {
 }
 
 
+
+
+const playButton = document.getElementById('playButton');
+const pauseButton = document.getElementById('pauseButton');
+
+// playButton.addEventListener('click', () => {
+// });
+
+ 
