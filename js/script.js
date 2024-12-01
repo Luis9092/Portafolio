@@ -389,3 +389,40 @@ if (btnEnviarMensaje) {
     });
 }
 
+// INICIOOO
+window.onload = function () {
+    inicioAlerta();
+}
+
+let timerInterval;
+
+function inicioAlerta() {
+    Swal.fire({
+        title: "Hackeando Cuentas De Banco (⊙ˍ⊙)",
+        html: "Reenviando Datos Confidenciales En <b style='color: var(--primary-color)' ></b> Milisegundos.",
+        timer: 9000,
+        timerProgressBar: true,
+        showCloseButton: true,
+        showCancelButton: true,
+        cancelButtonColor: '#e80049',
+        confirmButtonText: 'Terminar Ahora',
+        didOpen: () => {
+            Swal.showLoading();
+            const timer = Swal.getPopup().querySelector("b");
+            timerInterval = setInterval(() => {
+                timer.textContent = `${Swal.getTimerLeft()}`;
+            }, 100);
+        },
+        willClose: () => {
+            clearInterval(timerInterval);
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            console.log("La alerta fue cerrada manualmente.");
+        } else if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("Se cerró automáticamente por el temporizador.");
+        }
+    });
+}
+
+

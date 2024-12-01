@@ -85,7 +85,7 @@ header.sticky {
   border: none !important;
   outline: none;
 }
- 
+
 .logo {
   font-size: 26px;
   font-weight: 700;
@@ -1292,6 +1292,25 @@ footer a:hover {
   .social-icons {
     margin-top: 2rem;
   }
+}
+
+/* SWEETALERTTT */
+
+div:where(.swal2-container).swal2-top,
+div:where(.swal2-container).swal2-center,
+div:where(.swal2-container).swal2-bottom {
+  background-image: url("/img/f2.jpg") !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+div:where(.swal2-container).swal2-center > .swal2-popup {
+  background-color: var(--container-color);
+  color: var(--text-color);
+  border: 1px solid var(--secon-bg-color);
+   opacity: 0.88 !important;
+ 
 }
 
 @media (max-width: 768px) {
