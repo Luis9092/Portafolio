@@ -144,7 +144,7 @@ section {
 .title {
   width: 100%;
   text-align: center;
-  margin: 30px 0 !important;
+  margin: 24px 0 !important;
   font-weight: bold;
   position: relative;
 }
@@ -504,12 +504,6 @@ section {
   text-align: center;
 }
 
-.main-text h2 {
-  font-weight: 700;
-  font-size: var(--norma-font);
-  margin-bottom: 0.6rem;
-}
-
 .main-text span {
   color: var(--text-color);
   font-size: 0.8rem;
@@ -524,7 +518,7 @@ section {
   margin: auto;
 }
 
-.featured-slider .box {
+.card-slider .box {
   background: linear-gradient(
     20deg,
     var(--container-color) 60%,
@@ -537,55 +531,55 @@ section {
   box-shadow: var(--neon-box-shadow);
 }
 
-.featured-slider .box:hover {
+.card-slider .box:hover {
   border: var(--primary-color);
   border: 1px solid var(--primary-color);
 }
 
-.featured-slider .box .image {
+.card-slider .box .image {
   width: 16rem;
 }
 
-.featured-slider .box:hover .image {
+.card-slider .box:hover .image {
   transform: translateY(0.5rem);
 }
 
-.featured-slider .box .image img {
+.card-slider .box .image img {
   width: 100%;
   border-radius: 5px;
   box-shadow: var(--text-shadow);
 }
 
-.featured-slider .box .icons {
+.card-slider .box .icons {
   display: none;
   background-color: var(--container-color);
   border-radius: 5px;
   margin-bottom: 5px;
 }
 
-.featured-slider .box:hover .icons {
+.card-slider .box:hover .icons {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.featured-slider .box .icons a {
+.card-slider .box .icons a {
   color: var(--text-color);
   font-size: 1.2rem;
   padding: 0.5rem 1rem;
 }
 
-.featured-slider .box .icons a:hover {
+.card-slider .box .icons a:hover {
   background: var(--primary-color);
   color: var(--container-color);
 }
 
-.featured-slider .box .content {
+.card-slider .box .content {
   height: 12rem;
   padding: 2rem 1rem;
 }
 
-.featured-slider .box .content h4 {
+.card-slider .box .content h4 {
   padding: 10px;
   border-top: 1px solid var(--gray-color);
   border-bottom: 1px solid var(--gray-color);
@@ -1309,11 +1303,19 @@ div:where(.swal2-container).swal2-center > .swal2-popup {
   background-color: var(--container-color);
   color: var(--text-color);
   border: 1px solid var(--secon-bg-color);
-   opacity: 0.88 !important;
- 
+  opacity: 0.88 !important;
 }
 
 @media (max-width: 768px) {
+  .card-slider .box {
+    width: 50% !important;
+    padding: 12px;
+  }
+  .card-slider .box .image {
+    margin: 0;
+    width: auto;
+  }
+
   #menu-icon {
     display: block;
     transition: all 0.4s ease;

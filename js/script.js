@@ -170,13 +170,7 @@ function SaludoUsuario() {
     document.querySelector("#txtSaludo").innerHTML = cadena;
 }
 
-window.onload = function (e) {
-    SaludoUsuario();
-    pintadoCursos();
-    swiperCargando();
-    AmpliarImagen();
 
-}
 
 
 
@@ -259,10 +253,10 @@ function pintadoCursos() {
 
 // SLIDER VIEWCARDS
 function swiperCargando() {
-    let swiper = new Swiper(".featured-slider", {
+    let swiper = new Swiper(".card-slider", {
         spaceBetween: 40,
         loop: true,
-        slidesPerView: 1,
+        slidesPerView: 4,
         centeredSlides: true,
         // slidesPerView: 'auto',
         autoplay: {
@@ -391,14 +385,25 @@ if (btnEnviarMensaje) {
 
 const audio = new Audio('js/reproducir.mpeg');
 
+// window.onload = function (e) {
+//     SaludoUsuario();
+//     pintadoCursos();
+//     swiperCargando();
+//     AmpliarImagen();
+
+// }
+
 // INICIOOO
 window.onload = function () {
     inicioAlerta(); // Asegúrate de que esta función esté definida
-
+    SaludoUsuario();
+    pintadoCursos();
+    swiperCargando();
+    AmpliarImagen();
     // Esperar a que el usuario haga clic para reproducir el audio
     document.addEventListener('click', function () {
         if (audio && typeof audio.play === 'function') {
-            audio.play().catch(function(error) {
+            audio.play().catch(function (error) {
                 console.error('Error al intentar reproducir el audio:', error);
             });
         } else {
@@ -449,4 +454,3 @@ const pauseButton = document.getElementById('pauseButton');
 // playButton.addEventListener('click', () => {
 // });
 
- 
