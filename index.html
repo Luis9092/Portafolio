@@ -22,6 +22,10 @@
     <script src="lib/mixitup.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
 
     <!-- ESTILOS PAGINA -->
     <link rel="stylesheet" href="css/style.css" />
@@ -223,7 +227,9 @@
         </p>
         <br />
         <div class="btn-box">
-          <a href="#" class="btn">Descargar Cv</a>
+          <a href="/js/curriLuis.pdf" download="CurriculumLuis.pdf" class="btn"
+            >Descargar Cv</a
+          >
         </div>
       </div>
     </section>
@@ -555,17 +561,42 @@
         <h2 class="title"><span>Enviar Correo</span></h2>
       </div>
       <form action="#" class="scroll-bottom">
-        <input type="text" placeholder="Nombre" />
-        <input type="text" placeholder="Correo electronico" />
-        <textarea
-          name="text2"
-          id="text2"
-          cols="30"
-          rows="10"
-          placeholder="Comentario"
-        ></textarea>
+        <div class="inputgroup">
+          <label for="" id="labelNombre"> Nombres</label>
+          <input
+            type="text"
+            placeholder="Nombre"
+            name="nombrePersona"
+            id="nombrePersona"
+            required
+          />
+        </div>
+        <div class="inputgroup">
+          <label for="" id="labelCorreo">Correo </label>
+          <input
+            type="text"
+            placeholder="Correo electronico"
+            name="correoPersona"
+            id="correoPersona"
+            required
+          />
+        </div>
+        <div class="inputgroup">
+          <label for=""  id="labelMensaje" >Mensaje</label>
+          <textarea
+            name="mensajePersona"
+            id="mensajePersona"
+            cols="30"
+            rows="10"
+            placeholder="Comentario"
+            required
+          ></textarea>
+        </div>
+
         <div class="btn-box formBtn">
-          <button type="submit" class="btn">Enviar mensaje</button>
+          <button type="button" class="btn" id="btnEnviarcorreo">
+            Enviar mensaje
+          </button>
         </div>
       </form>
     </section>
@@ -580,5 +611,10 @@
 
     <script src="js/script.js"></script>
     <script src="js/animacionCanvas.js"></script>
+
+    <!-- <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script> -->
   </body>
 </html>

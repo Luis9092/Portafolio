@@ -454,3 +454,105 @@ const pauseButton = document.getElementById('pauseButton');
 // playButton.addEventListener('click', () => {
 // });
 
+
+
+//ENVIAR CORREO ELECTRONIC
+
+const btnEnviarcorreo = document.querySelector("#btnEnviarcorreo");
+const nombrePersona = document.querySelector("#nombrePersona");
+const correoPersona = document.querySelector("#correoPersona");
+const mensajePersona = document.querySelector("#mensajePersona");
+
+// LABELS
+const labelNombre = document.querySelector("#labelNombre");
+const labelCorreo = document.querySelector("#labelCorreo");
+const labelMensaje = document.querySelector("#labelMensaje");
+
+if (btnEnviarcorreo) {
+    btnEnviarcorreo.addEventListener("click", (e) => {
+        emailjs.init("iM_jA3VFtlpSZW9wq"); // Reemplaza con tu user_id
+        // enviarCorreo(nombrePersona, correoPersona, mensajePersona);
+        let retorno1 = validateCamposVacios(nombrePersona, labelNombre, "Nombres")
+        let retorno2 = validarGmail();
+        let retorno3 = validateCamposVacios(mensajePersona, labelMensaje, "Mensaje");
+        if (retorno1 && retorno2 && retorno3 == 1) {
+            enviarCorreo(nombrePersona.value, correoPersona.value, mensajePersona.value);
+        }
+
+    });
+}
+
+function validarGmail() {
+    const fieldValue = correoPersona.value;
+    const regex = new RegExp("^(.*)@(gmail|googlemail|(.*.)google).com");
+    let retorno = 0;
+
+    if (fieldValue.trim().length === 0) {
+        labelCorreo.innerHTML = "*Por favor llenar el campo";
+        labelCorreo.style.color = "red";
+        retorno = 0;
+
+    } else if (!regex.test(fieldValue)) {
+        labelCorreo.innerHTML = "*No cumple como un correo válido.";
+        labelCorreo.style.color = "red";
+        retorno = 0;
+
+    } else {
+        labelCorreo.style.color = "var(--text-color)";
+        labelCorreo.innerText = "Correo";
+        retorno = 1;
+    }
+    return retorno;
+}
+
+function validateCamposVacios(campo, label, nombre) {
+    const valor = campo.value;
+    let retorno = 0;
+
+    if (valor.trim().length === 0) {
+        label.innerHTML = "*Por favor llenar el campo";
+        label.style.color = "red";
+        retorno = 0;
+    } else {
+        label.style.color = "var(--text-color)";
+        label.innerText = nombre;
+        retorno = 1;
+    }
+    return retorno;
+
+}
+
+
+
+
+
+function enviarCorreo(nombre, email, mensaje) {
+    const templateParams = {
+        nombrePersona: nombre,
+        correoPersona: email,
+        mensajePersona: mensaje
+    };
+
+    emailjs.send('service_r6cul01', 'template_7ipfi4q', templateParams)
+        .then((response) => {
+            console.log('Correo enviado con éxito!', response.status, response.text);
+            alertaCorreo("Correo", "Correo enviado correctamente!!", "success");
+            nombrePersona.value = "";
+            correoPersona.value = "";
+            mensajePersona.value = "";
+
+        }, (error) => {
+            console.error('Error al enviar correo:', error);
+            alertaCorreo("Correo", "Error al enviar el mensaje", "error");
+        });
+}
+
+// Ejemplo de uso
+
+function alertaCorreo(titulo, texto, icono) {
+    Swal.fire({
+        title: titulo,
+        text: texto,
+        icon: icono
+    });
+}

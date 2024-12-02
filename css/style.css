@@ -914,6 +914,16 @@ section {
   margin: 1rem auto;
   margin-bottom: 3rem;
 }
+.contact .inputgroup{
+  /* background-color: rebeccapurple; */
+  display: flex;
+  flex-direction: column;
+  margin: 4px;
+  gap: 6px;
+  justify-content: left;
+  align-items: start;
+  color: var(--text-color);
+}
 
 .contact form input,
 .contact form textarea {
@@ -1308,7 +1318,7 @@ div:where(.swal2-container).swal2-center > .swal2-popup {
 
 @media (max-width: 768px) {
   .card-slider .box {
-    width: 50% !important;
+    width: 70% !important;
     padding: 12px;
   }
   .card-slider .box .image {
